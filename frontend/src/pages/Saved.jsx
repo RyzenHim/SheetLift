@@ -34,7 +34,6 @@ const Saved = () => {
         window.location.href = '/login';
     };
 
-    // ── Fetch tasks from backend ─────────────────────────────────────────────
     const fetchTasks = async () => {
         setLoading(true);
         setError('');
@@ -66,7 +65,6 @@ const Saved = () => {
         setPage(1);
     };
 
-    // ── Add task ─────────────────────────────────────────────────────────────
     const handleAdd = async (e) => {
         e.preventDefault();
         if (!addForm.title.trim()) return;
@@ -83,7 +81,6 @@ const Saved = () => {
         setAddLoading(false);
     };
 
-    // ── Start inline edit ────────────────────────────────────────────────────
     const startEdit = (task) => {
         setEditingId(task._id);
         setEditForm({
@@ -93,7 +90,6 @@ const Saved = () => {
         });
     };
 
-    // ── Save inline edit ─────────────────────────────────────────────────────
     const saveEdit = async (taskId) => {
         try {
             await axios.put(
@@ -108,7 +104,6 @@ const Saved = () => {
         }
     };
 
-    // ── Toggle completed ─────────────────────────────────────────────────────
     const toggleDone = async (task) => {
         try {
             await axios.put(
@@ -122,7 +117,6 @@ const Saved = () => {
         }
     };
 
-    // ── Delete task ──────────────────────────────────────────────────────────
     const deleteTask = async (taskId) => {
         if (!window.confirm('Delete this task?')) return;
         try {
